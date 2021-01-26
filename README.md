@@ -35,3 +35,19 @@ The output should be:
 
 As chunk#179 (i.e. main) is the only chunk with a CSS file, `main.179.c539139b868f46f81e90.css`
 
+# Variations
+
+This don't fix the problem:
+
+```
+  plugins: [new MiniCssExtractPlugin({
+    filename: '[name].[id].[chunkhash].css',
+    chunkFilename: '[name].[id].[chunkhash].css',
+  })],
+```
+
+This fixes bug#2, but not bug#1
+
+```
+  plugins: [new MiniCssExtractPlugin()],
+```
